@@ -3,37 +3,32 @@
 
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 </head>
 
 <body>
-<header>
+    <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="{{url_for('get_tasks')}}" class="brand-logo">Project Tasker</a>
+                <a href="{{url_for('get_tasks')}}" class="brand-logo">Task Manager</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{url_for('projects')}}">Home</a></li>
-                    <li><a href="{{url_for('task')}}">Tasks</a></li>
-                    <li><a href="{{url_for('add_project')}}">New Project</a></li>
+                    <li><a href="{{url_for('get_tasks')}}">Home</a></li>
                     <li><a href="{{url_for('add_task')}}">New Task</a></li>
-                    <li><a href="{{url_for('add_user')}}">New User</a></li>
+                    <li><a href="{{url_for('get_categories')}}">Manage Categories</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{url_for('projects')}}">Home</a></li>
-                    <li><a href="{{url_for('task')}}">Tasks</a></li>
-                    <li><a href="{{url_for('add_project')}}">New Project</a></li>
+                    <li><a href="{{url_for('get_tasks')}}">Home</a></li>
                     <li><a href="{{url_for('add_task')}}">New Task</a></li>
-                    <li><a href="{{url_for('add_user')}}">New User</a></li>
+                    <li><a href="{{url_for('get_categories')}}">Manage Categories</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <div class="container">
-    {% block content %} {% endblock %}
+        {% block content %} {% endblock %}
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript">
@@ -51,10 +46,6 @@
             close: 'Ok',
             closeOnSelect: false // Close upon selecting a date,
         });
-        
-        document.getElementById("matfix").addEventListener("click", function(e) {
-	e.stopPropagation();
-});
     </script>
 </body>
 
